@@ -67,11 +67,11 @@ namespace VBase
 
                     string fname = null;
 
-                    if (result1==null)
-                    {
+                    //if (result1==null)
+                    //{
                         fname = dlg1.FileName;
                         _lastPath = Path.GetDirectoryName(fname);
-                    }
+                    //}
 
                     return fname;
             }

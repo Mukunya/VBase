@@ -7,7 +7,7 @@ using System.IO;
 
 namespace VBase
 {
-    public enum Loglevel { INFO, WARN, ERROR }
+    public enum Loglevel {DEBUG, INFO, WARN, ERROR }
     public static class Logger
     {
         private static string latestlogpath;
