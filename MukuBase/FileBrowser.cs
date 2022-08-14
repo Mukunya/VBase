@@ -8,7 +8,7 @@ using Microsoft.Win32;
 
 namespace VBase
 {
-
+#if WINDOWS
     public class FileBrowser
     {				
         private string _lastPath;
@@ -107,4 +107,5 @@ namespace VBase
             
         }
     }
+#endif
 }

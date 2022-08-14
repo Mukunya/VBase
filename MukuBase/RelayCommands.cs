@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace VBase
 {
+#if WINDOWS
     public class RelayCommand : ICommand
     {
         #region Fields 
@@ -39,4 +40,5 @@ namespace VBase
         }
         #endregion // ICommand Members 
     }
+#endif
 }
