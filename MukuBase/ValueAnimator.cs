@@ -1,28 +1,31 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
 namespace MukuBase
 {
-    internal class ValueAnimator
+    public class ValueAnimator
     {
         private ValueAnimator() 
         {
             timer.Elapsed +=Timer_Elapsed;
         }
-
-        private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
+        private DateTime start;
+        private DateTime end;
+        private async void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {
-            i++;
-            number = from + ((i*(to-from))/maxi);
-            if (i == maxi)
+            float ms = (float)(DateTime.Now-start).TotalMilliseconds;
+            number = (from + (ms/msduration)*(to-from));
+            if (number>=to)
             {
-                number = to;
-                timer.Stop();
-                timer.Dispose();
-                isDone= true;
+                End();
             }
-            Valuechanged?.Invoke(this,number);
+            else
+            {
+                Valuechanged?.Invoke(this, number);
+            }
         }
         public void End()
         {
@@ -46,8 +49,6 @@ namespace MukuBase
         private float number = 0;
         private float from = 0;
         private float to = 0;
-        private float i = 0;
-        private int maxi = 0;
         private int msduration = 0;
         public bool isDone = false;
         private Timer timer = new Timer();
@@ -64,11 +65,13 @@ namespace MukuBase
             instance.number = from;
             instance.msduration = msduration;
             instance.timer.Interval = mstimestep;
-            instance.maxi = (int)Math.Ceiling(((double)msduration)/((double)mstimestep));
             instance.Handler= changehandler;
             instance.Valuechanged += changehandler;
             instance.timer.Start();
+            instance.start = DateTime.Now;
+            instance.end = instance.start.AddMilliseconds(msduration);
             return instance;
+
         }
         
     }
