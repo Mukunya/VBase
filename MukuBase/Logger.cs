@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace VBase
+namespace MukuBase
 {
     public enum Loglevel {DUMP = 0 ,DEBUG = 1, INFO = 2, WARN = 3, ERROR = 4 }
     public static class Logger
