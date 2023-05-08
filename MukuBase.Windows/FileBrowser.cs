@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Win32;
 
-namespace VBase
+namespace MukuBase.Windows
 {
     public class FileBrowser
     {				

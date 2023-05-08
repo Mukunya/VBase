@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Windows.Input;
 
-namespace VBase
+namespace MukuBase.Windows
 {
     public class RelayCommand : ICommand
     {
