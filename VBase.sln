@@ -5,9 +5,13 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MukuBase", "MukuBase\MukuBase.csproj", "{5BC70CFD-BA57-42D2-B97A-227780521722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MukuBase.Windows", "MukuBase.Windows\MukuBase.Windows.csproj", "{827CDDF4-D09D-4EAC-96C1-D2EC61B84E81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MukuBase.Windows", "MukuBase.Windows\MukuBase.Windows.csproj", "{827CDDF4-D09D-4EAC-96C1-D2EC61B84E81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{3F8A3BFF-BE01-48A3-A02F-51572F9E6647}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MukuBase.Windows.UWPHelpers", "MukuBase.Windows.UWPHelpers\MukuBase.Windows.UWPHelpers.csproj", "{B565938F-FC03-4545-A103-73D5A8E4291F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{58CA13C6-0643-485C-8E4B-257B515353C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AesTest", "AesTest\AesTest.csproj", "{31C51136-EA27-4876-AC00-4381801E1507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,13 +27,20 @@ Global
 		{827CDDF4-D09D-4EAC-96C1-D2EC61B84E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{827CDDF4-D09D-4EAC-96C1-D2EC61B84E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{827CDDF4-D09D-4EAC-96C1-D2EC61B84E81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F8A3BFF-BE01-48A3-A02F-51572F9E6647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F8A3BFF-BE01-48A3-A02F-51572F9E6647}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F8A3BFF-BE01-48A3-A02F-51572F9E6647}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F8A3BFF-BE01-48A3-A02F-51572F9E6647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B565938F-FC03-4545-A103-73D5A8E4291F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B565938F-FC03-4545-A103-73D5A8E4291F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B565938F-FC03-4545-A103-73D5A8E4291F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B565938F-FC03-4545-A103-73D5A8E4291F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C51136-EA27-4876-AC00-4381801E1507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C51136-EA27-4876-AC00-4381801E1507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C51136-EA27-4876-AC00-4381801E1507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C51136-EA27-4876-AC00-4381801E1507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{31C51136-EA27-4876-AC00-4381801E1507} = {58CA13C6-0643-485C-8E4B-257B515353C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0621DE3F-8284-468E-9E47-596EBBF3F43A}
