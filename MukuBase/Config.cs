@@ -59,7 +59,7 @@ namespace MukuBase
         {
             config.TryAdd(key, value);
         }
-        public void SetDefaults(params KeyValuePair<string, string>[] values)
+        public void SetDefaults(params (string Key, string Value)[] values)
         {
             foreach (var pair in values)
             {
