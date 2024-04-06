@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +87,7 @@ namespace MukuBase
                 {
                     continue;
                 }
-                config.Add(configfile.Trim().Split(':')[0], configfile.Trim().Split(':')[1]);
+                config.Add(configfile.Trim().Split(':')[0], configfile.Trim().Split(':').Skip(1).Aggregate((string prev, string current) => prev+current));
             }
         }
         /// <summary>
