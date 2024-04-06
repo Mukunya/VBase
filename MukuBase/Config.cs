@@ -15,6 +15,8 @@ namespace MukuBase
         public Scope ConfigScope { get; set; } = Scope.application;
         public bool AutoSave { get; set; } = false;
         private Dictionary<string,string> config = new Dictionary<string,string>();
+        private Dictionary<string,string> defaults = new Dictionary<string,string>();
+
         public Config() { }
         public string this[string key]
         {
@@ -43,6 +45,21 @@ namespace MukuBase
                 {
                     Save();
                 }
+            }
+        }
+
+        public string[] Keys => config.Keys.ToArray();
+
+        public void SetDefault(string key, string value)
+        {
+            defaults[key] = value;
+        }
+
+        public void SetDefaults(params KeyValuePair<string, string>[] values)
+        {
+            foreach (var pair in values)
+            {
+                SetDefault(pair.Key,pair.Value);
             }
         }
         private string getdefaultlocation()
@@ -81,13 +98,17 @@ namespace MukuBase
                 return;
             string[] configf = File.ReadAllLines(configfilelocation);
             config.Clear();
+            foreach (var keyValuePair in defaults)
+            {
+                config.Add(keyValuePair.Key,keyValuePair.Value);
+            }
             foreach (string configfile in configf)
             {
                 if (configfile == "" || !configfile.Contains(':'))
                 {
                     continue;
                 }
-                config.Add(configfile.Trim().Split(':')[0], configfile.Trim().Split(':').Skip(1).Aggregate((string prev, string current) => prev+current));
+                config.Add(configfile.Trim().Split(':')[0], configfile.Trim().Split(':').Skip(1).Aggregate((string prev, string current) => prev+':'+current));
             }
         }
         /// <summary>
