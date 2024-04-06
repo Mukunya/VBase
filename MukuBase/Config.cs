@@ -55,6 +55,10 @@ namespace MukuBase
             defaults[key] = value;
         }
 
+        public void SetIfEmpty(string key, string value)
+        {
+            config.TryAdd(key, value);
+        }
         public void SetDefaults(params KeyValuePair<string, string>[] values)
         {
             foreach (var pair in values)
