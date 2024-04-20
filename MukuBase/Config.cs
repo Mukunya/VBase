@@ -98,14 +98,14 @@ namespace MukuBase
         /// <param name="configfilelocation"></param>
         public void Load(string configfilelocation)
         {
-            if (!File.Exists(configfilelocation))
-                return;
-            string[] configf = File.ReadAllLines(configfilelocation);
             config.Clear();
             foreach (var keyValuePair in defaults)
             {
-                config.Add(keyValuePair.Key,keyValuePair.Value);
+                config.Add(keyValuePair.Key, keyValuePair.Value);
             }
+            if (!File.Exists(configfilelocation))
+                return;
+            string[] configf = File.ReadAllLines(configfilelocation);
             foreach (string configfile in configf)
             {
                 if (configfile == "" || !configfile.Contains(':'))
