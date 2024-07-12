@@ -22,7 +22,7 @@ namespace MukuBase
         {
             get 
             {
-                if (config.TryGetValue(key,out string value))
+                if (config.TryGetValue(key.ToLower().Trim(),out string value))
                 {
                     return value;
                 }
@@ -57,7 +57,7 @@ namespace MukuBase
 
         public void SetIfEmpty(string key, string value)
         {
-            config.TryAdd(key, value);
+            config.TryAdd(key.ToLower().Trim(), value);
         }
         public void SetDefaults(params (string Key, string Value)[] values)
         {
@@ -101,7 +101,7 @@ namespace MukuBase
             config.Clear();
             foreach (var keyValuePair in defaults)
             {
-                config.Add(keyValuePair.Key, keyValuePair.Value);
+                config.Add(keyValuePair.Key.ToLower().Trim(), keyValuePair.Value);
             }
             if (!File.Exists(configfilelocation))
                 return;
@@ -112,7 +112,7 @@ namespace MukuBase
                 {
                     continue;
                 }
-                config.Add(configfile.Trim().Split(':')[0], configfile.Trim().Split(':').Skip(1).Aggregate((string prev, string current) => prev+':'+current));
+                this[configfile.Trim().Split(':')[0]]= configfile.Trim().Split(':').Skip(1).Aggregate((string prev, string current) => prev+':'+current);
             }
         }
         /// <summary>

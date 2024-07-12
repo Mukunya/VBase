@@ -37,7 +37,7 @@ namespace MukuBase.Windows
 
                     dlg.CheckFileExists = true;
 
-                    if (_lastPath.Length > 2)
+                    if (_lastPath?.Length > 2)
                         dlg.InitialDirectory = _lastPath;
 
 
@@ -61,7 +61,7 @@ namespace MukuBase.Windows
 
                     dlg1.CheckFileExists = false;
 
-                    if (_lastPath.Length > 2)
+                    if (_lastPath?.Length > 2)
                         dlg1.InitialDirectory = _lastPath;
 
                     bool? result1 = dlg1.ShowDialog();
